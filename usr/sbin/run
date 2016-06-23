@@ -1,0 +1,40 @@
+#!/bin/bash
+if [ -f /opt/rootpasswd.log ];
+then
+ echo "===================== Restart ========================="
+else
+ echo "====================== Start =========================="
+ echo "`date +%s | sha256sum | base64 | head -c 12`" > /opt/rootpasswd.log
+ echo "root:`cat /opt/rootpasswd.log`" | chpasswd
+ echo "serverpasswordset `cat /opt/rootpasswd.log` " >/opt/vpnserver/passwd.log
+ echo "hub default " >>/opt/vpnserver/passwd.log
+ echo "SetHubPassword `cat /opt/rootpasswd.log`" >>/opt/vpnserver/passwd.log
+ echo "UserPasswordSet root /password:`cat /opt/rootpasswd.log` " >>/opt/vpnserver/passwd.log
+ echo "exit" >>/opt/vpnserver/passwd.log
+ echo "root:`cat /opt/rootpasswd.log`" | chpasswd
+fi
+sleep 1
+service tinyproxy start
+sleep 1
+service mproxy start
+sleep 1
+service sshd start
+sleep 1
+/opt/vpnserver/vpnserver start
+if [ -f /opt/vpnserver/passwd.log ];
+then
+ /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log >/dev/null
+ rm -rf /opt/vpnserver/passwd.log
+fi
+/etc/tinyproxy/restarttiny.sh &
+echo " "
+echo "======================================================="
+echo " "
+echo "         PassWord : `cat /opt/rootpasswd.log`"
+echo " "
+echo "======================================================="
+echo " "
+echo "Made By alechy 20160615"
+echo "Do you have any quesions? To Jion QQ Group : 261167945"
+echo "People who profit from the Image are immoral!"
+wait

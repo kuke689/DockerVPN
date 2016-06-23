@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# tinyproxy     Startup script for the tinyproxy server
+#
+# chkconfig:   - 85 15
+# description: small, efficient HTTP/SSL proxy daemon
+#
+# processname: mproxy
+#
+# Note: pidfile is created by mproxy in its config
+# see PidFile in the configuration file.
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+# Source networking configuration.
+.  /etc/sysconfig/network
+# Check that networking is up.
+[ "$NETWORKING" = "no" ] && exit 0
+
+exec="/usr/sbin/mproxy"
+prog=$(basename $exec)
+
+lockfile=/var/lock/subsys/mproxy
+
+
+rh_status_q() {
+    rh_status >/dev/null 2>&1
+}
+
+start() {
+    [ -x $exec ] || exit 5
+    echo -n $"Starting $prog: "
+    daemon $exec -l 8080 -o 33394 -d  
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    retval=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+restart() {
+    stop
+    start
+}
+
+
+rh_status() {
+    status $prog
+}
+
+case "$1" in
+    start)
+        rh_status_q && exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart)
+        $1
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|restart}"
+        exit 2
+esac
+exit $?
+
