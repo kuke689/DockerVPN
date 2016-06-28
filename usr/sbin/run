@@ -15,8 +15,8 @@ else
 fi
 sleep 1
 service tinyproxy start
-sleep 1
-service mproxy start
+#sleep 1
+#service mproxy start
 sleep 1
 service sshd start
 sleep 1
@@ -34,7 +34,7 @@ echo "         PassWord : `cat /opt/rootpasswd.log`"
 echo " "
 echo "======================================================="
 echo " "
-echo "Made By alechy 20160615"
+echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
 echo "People who profit from the Image are immoral!"
 wait
