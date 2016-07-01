@@ -23,7 +23,7 @@ sleep 1
 /opt/vpnserver/vpnserver start
 if [ -f /opt/vpnserver/passwd.log ];
 then
- /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log
+ /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /dev/null
  rm -rf /opt/vpnserver/passwd.log
 fi
 /etc/tinyproxy/restarttiny.sh &
