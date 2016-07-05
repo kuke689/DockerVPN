@@ -16,5 +16,5 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ADD ./usr /usr
 ADD ./opt /opt
 ADD ./etc /etc
-RUN chmod +x /opt/vpnserver/vpnserver /opt/vpnserver/vpncmd /opt/vpnserver/hamcore.se2 /usr/sbin/run /etc/tinyproxy/restarttiny.sh /usr/sbin/tinyproxy /usr/sbin/mproxy /etc/rc.d/init.d/mproxy
+RUN chmod +x /opt/vpnserver/vpnserver /opt/vpnserver/vpncmd /opt/vpnserver/hamcore.se2 /usr/sbin/run /etc/tinyproxy/restarttiny.sh /usr/sbin/tinyproxy /usr/sbin/mproxy /etc/rc.d/init.d/mproxy /usr/sbin/gxbb
 ENTRYPOINT ["/usr/sbin/run"]
