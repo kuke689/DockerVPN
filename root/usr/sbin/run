@@ -43,6 +43,11 @@ echo " "
 echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
 echo "People who profit from the Image are immoral!"
-sleep 5
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CUC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CTC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CMC.ovpn
+cat /var/www/html/CUC.ovpn >> /var/www/html/163-CUC.ovpn
+cat /var/www/html/CTC.ovpn >> /var/www/html/163-CTC.ovpn
+cat /var/www/html/CMC.ovpn >> /var/www/html/163-CMC.ovpn
 /usr/sbin/monitor &
 wait
