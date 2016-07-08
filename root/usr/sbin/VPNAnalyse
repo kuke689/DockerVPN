@@ -12,10 +12,8 @@ echo "</head>" >>/var/www/html/index.html
 echo "<body>" >>/var/www/html/index.html
 cat /var/www/html/Head >>/var/www/html/index.html
 #######################
-
-echo "<H3>»Á∫Œ’“µΩ√‹¬Î</h3><hr>" >>/var/www/html/index.html
+echo "<H3>How to find password</h3><hr>" >>/var/www/html/index.html
 echo "<img src="./passwd.png">" >>/var/www/html/index.html
-
 #######################
 echo "<H3>SSH Info</h3><hr>" >>/var/www/html/index.html
 cat /opt/sshinfo.log | while read LINE
