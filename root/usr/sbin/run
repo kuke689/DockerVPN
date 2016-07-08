@@ -1,6 +1,8 @@
 #!/bin/bash
 if [ -f /opt/rootpasswd.log ];
 then
+ echo " "
+ echo " "
  echo "===================== Restart ========================="
 else
  echo "====================== Start =========================="
@@ -25,10 +27,9 @@ sleep 1
 /opt/vpnserver/vpnserver start
 if [ -f /opt/vpnserver/passwd.log ];
 then
- /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /dev/null
+ /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log
  rm -rf /opt/vpnserver/passwd.log
-fi
-/usr/sbin/monitor.sh &
+fidoc
 echo " "
 echo "======================================================="
 echo " "
@@ -39,4 +40,6 @@ echo " "
 echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
 echo "People who profit from the Image are immoral!"
+sleep 5
+/usr/sbin/monitor &
 wait
