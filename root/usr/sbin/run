@@ -16,12 +16,17 @@ else
  echo "exit" >>/opt/vpnserver/passwd.log
  echo "root:`cat /opt/rootpasswd.log`" | chpasswd
 fi
+#sleep 1
+#service mproxy start >/dev/null 2>&1
 sleep 1
-service sshd restart
+service tinyproxy start
+sleep 1
+service httpd start >/dev/null 2>&1
+sleep 1
+service sshd start
 sleep 1
 /opt/vpnserver/vpnserver start
 sleep 1
-echo "Start to Change Passwd!"
 if [ -f /opt/vpnserver/passwd.log ];
 then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/changepasswd.log
