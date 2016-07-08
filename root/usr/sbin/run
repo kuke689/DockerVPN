@@ -28,7 +28,7 @@ then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /dev/null
  rm -rf /opt/vpnserver/passwd.log
 fi
-/usr/sbin/monitor.sh.sh &
+/usr/sbin/monitor.sh &
 echo " "
 echo "======================================================="
 echo " "
