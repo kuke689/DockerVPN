@@ -36,7 +36,7 @@ echo "http-proxy $IPAddress 80" > /var/www/html/163-CMC.ovpn
 cat /var/www/html/CUC.ovpn >> /var/www/html/163-CUC.ovpn
 cat /var/www/html/CTC.ovpn >> /var/www/html/163-CTC.ovpn
 cat /var/www/html/CMC.ovpn >> /var/www/html/163-CMC.ovpn
-echo Visit http://YourIP:8888 to Get More info!
+echo Visit http://$IPAddress:8888 to Get More info!
 echo "======================================================="
 echo " "
 echo "         PassWord : `cat /opt/rootpasswd.log`"
