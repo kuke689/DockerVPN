@@ -3,7 +3,7 @@ ps -ef | grep sshd | grep -v "grep" | grep -v "/usr/sbin/sshd" > /opt/sshinfo.lo
 ifconfig > /opt/ifconfig.log
 /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/userlist.log /CMD:userlist
 /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/SessionList.log /CMD:SessionList
-cat /var/www/html/Head >>/var/www/html/index.html
+cat /var/www/html/Head >/var/www/html/index.html
 #######################
 echo "<H3>SSH Info</h3><hr>" >>/var/www/html/index.html
 cat /opt/sshinfo.log | while read LINE
