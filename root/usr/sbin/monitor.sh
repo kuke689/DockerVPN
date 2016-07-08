@@ -12,6 +12,6 @@ pkill tinyproxy
 service tinyproxy restart 
 fi
 pkill vpncmd
-sh /usr/sbin/VPNAnalyse &
+/usr/sbin/VPNAnalyse &
 sleep 15
 done

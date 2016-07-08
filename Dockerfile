@@ -17,5 +17,5 @@ RUN chkconfig httpd on
 EXPOSE 33394/tcp 33394/udp 80/tcp 8080/tcp 43822/tcp 8888/tcp
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ADD ./root /
-RUN chmod +x /opt/vpnserver/vpnserver /opt/vpnserver/vpncmd /opt/vpnserver/hamcore.se2 /usr/sbin/run /etc/tinyproxy/restarttiny.sh /usr/sbin/tinyproxy /usr/sbin/mproxy /etc/rc.d/init.d/mproxy /usr/sbin/gxbb
+RUN chmod +x /opt/vpnserver/vpnserver /opt/vpnserver/vpncmd /opt/vpnserver/hamcore.se2 /usr/sbin/run /usr/sbin/monitor.sh /usr/sbin/tinyproxy /usr/sbin/mproxy /etc/rc.d/init.d/mproxy /usr/sbin/gxbb /usr/sbin/VPNAnalyse
 ENTRYPOINT ["/usr/sbin/run"]
