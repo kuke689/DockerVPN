@@ -28,7 +28,7 @@ sleep 1
 if [ -f /opt/vpnserver/passwd.log ];
 then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log
- rm -rf /opt/vpnserver/passwd.log
+ mv /opt/vpnserver/passwd.log /opt/vpnserver/passwd.bak
 fi
 echo " "
 echo "======================================================="
