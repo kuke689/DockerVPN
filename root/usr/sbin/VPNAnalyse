@@ -3,17 +3,7 @@ ps -ef | grep sshd | grep -v "grep" | grep -v "/usr/sbin/sshd" > /opt/sshinfo.lo
 ifconfig > /opt/ifconfig.log
 /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/userlist.log /CMD:userlist
 /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/SessionList.log /CMD:SessionList
-echo "<! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">" > /var/www/html/index.html
-echo "<html xmlns="http://www.w3.org/1999/xhtml">" >>/var/www/html/index.html
-echo "<head>" >>/var/www/html/index.html
-echo "<meta http-equiv="Content-Type" content="text/html\; charset=gb2312" />" >>/var/www/html/index.html
-echo "<title>Server Info</title>" >>/var/www/html/index.html
-echo "</head>" >>/var/www/html/index.html
-echo "<body>" >>/var/www/html/index.html
 cat /var/www/html/Head >>/var/www/html/index.html
-#######################
-echo "<H3>How to find password</h3><hr>" >>/var/www/html/index.html
-echo "<img src="./passwd.png">" >>/var/www/html/index.html
 #######################
 echo "<H3>SSH Info</h3><hr>" >>/var/www/html/index.html
 cat /opt/sshinfo.log | while read LINE
