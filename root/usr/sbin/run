@@ -18,6 +18,8 @@ service tinyproxy start
 #sleep 1
 #service mproxy start
 sleep 1
+service httpd start
+sleep 1
 service sshd start
 sleep 1
 /opt/vpnserver/vpnserver start
@@ -26,7 +28,7 @@ then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /dev/null
  rm -rf /opt/vpnserver/passwd.log
 fi
-/etc/tinyproxy/restarttiny.sh &
+/usr/sbin/monitor.sh.sh &
 echo " "
 echo "======================================================="
 echo " "
