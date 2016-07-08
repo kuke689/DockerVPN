@@ -17,13 +17,7 @@ else
  echo "root:`cat /opt/rootpasswd.log`" | chpasswd
 fi
 sleep 1
-service tinyproxy start
-#sleep 1
-#service mproxy start
-sleep 1
-service httpd start
-sleep 1
-service sshd start
+service sshd restart
 sleep 1
 /opt/vpnserver/vpnserver start
 sleep 1
