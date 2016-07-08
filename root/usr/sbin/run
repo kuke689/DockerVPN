@@ -19,11 +19,8 @@ fi
 #service mproxy start >/dev/null 2>&1
 sleep 1
 service tinyproxy start
-sleep 1
 service httpd start >/dev/null 2>&1
-sleep 1
 service sshd start
-sleep 1
 /opt/vpnserver/vpnserver start
 sleep 1
 if [ -f /opt/vpnserver/passwd.log ];
@@ -31,6 +28,14 @@ then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/changepasswd.log
  mv /opt/vpnserver/passwd.log /opt/vpnserver/passwd.bak
 fi
+sleep 3
+IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CUC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CTC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CMC.ovpn
+cat /var/www/html/CUC.ovpn >> /var/www/html/163-CUC.ovpn
+cat /var/www/html/CTC.ovpn >> /var/www/html/163-CTC.ovpn
+cat /var/www/html/CMC.ovpn >> /var/www/html/163-CMC.ovpn
 echo Visit http://YourIP:8888 to Get More info!
 echo "======================================================="
 echo " "
