@@ -1,5 +1,4 @@
 #!/bin/bash
-IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`
 if [ -f /opt/rootpasswd.log ];
 then
  echo " "
@@ -32,7 +31,7 @@ then
  /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/changepasswd.log
  mv /opt/vpnserver/passwd.log /opt/vpnserver/passwd.bak
 fi
-echo Visit http://$IPAddress:8888 to Get More info!
+echo Visit http://YourIP:8888 to Get More info!
 echo "======================================================="
 echo " "
 echo "         PassWord : `cat /opt/rootpasswd.log`"
@@ -42,11 +41,5 @@ echo " "
 echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
 echo "People who profit from the Image are immoral!"
-echo "http-proxy $IPAddress 80" > /var/www/html/163-CUC.ovpn
-echo "http-proxy $IPAddress 80" > /var/www/html/163-CTC.ovpn
-echo "http-proxy $IPAddress 80" > /var/www/html/163-CMC.ovpn
-cat /var/www/html/CUC.ovpn >> /var/www/html/163-CUC.ovpn
-cat /var/www/html/CTC.ovpn >> /var/www/html/163-CTC.ovpn
-cat /var/www/html/CMC.ovpn >> /var/www/html/163-CMC.ovpn
 /usr/sbin/monitor &
 wait

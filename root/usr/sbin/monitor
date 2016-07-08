@@ -14,4 +14,11 @@ fi
 pkill vpncmd
 /usr/sbin/VPNAnalyse &
 sleep 15
+IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CUC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CTC.ovpn
+echo "http-proxy $IPAddress 80" > /var/www/html/163-CMC.ovpn
+cat /var/www/html/CUC.ovpn >> /var/www/html/163-CUC.ovpn
+cat /var/www/html/CTC.ovpn >> /var/www/html/163-CTC.ovpn
+cat /var/www/html/CMC.ovpn >> /var/www/html/163-CMC.ovpn
 done
