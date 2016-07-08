@@ -1,4 +1,5 @@
 #!/bin/bash
+IPAddress=`wget http://members.3322.org/dyndns/getip -O - -q ; echo`
 if [ -f /opt/rootpasswd.log ];
 then
  echo " "
@@ -29,10 +30,10 @@ sleep 1
 echo "Start to Change Passwd!"
 if [ -f /opt/vpnserver/passwd.log ];
 then
- /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/passwdchange.log
+ /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/changepasswd.log
  mv /opt/vpnserver/passwd.log /opt/vpnserver/passwd.bak
 fi
-echo " "
+echo Visit http://$IPAddress:8888 to Get More info!
 echo "======================================================="
 echo " "
 echo "         PassWord : `cat /opt/rootpasswd.log`"
