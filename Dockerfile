@@ -12,7 +12,7 @@ RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Port 43822" >> /etc/ssh/sshd_config
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN sed -i '/Listen/s/Listen/#Listen/' /etc/httpd/conf/httpd.conf
-RUN echo "Listen 8888" >  /etc/httpd/conf/httpd.conf
+RUN echo "Listen 8888" >> /etc/httpd/conf/httpd.conf
 RUN chkconfig httpd on
 EXPOSE 33394/tcp 33394/udp 80/tcp 8080/tcp 43822/tcp 8888/tcp
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

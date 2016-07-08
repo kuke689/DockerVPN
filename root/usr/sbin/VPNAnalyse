@@ -6,7 +6,7 @@ ifconfig > /opt/ifconfig.log
 echo "<! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">" > /var/www/html/index.htm
 echo "<html xmlns="http://www.w3.org/1999/xhtml">" >>/var/www/html/index.htm
 echo "<head>" >>/var/www/html/index.htm
-echo "<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />" >>/var/www/html/index.htm
+echo "<meta http-equiv="Content-Type" content="text/html\; charset=gb2312" />" >>/var/www/html/index.htm
 echo "<title>服务器简易统计信息</title>" >>/var/www/html/index.htm
 echo "</head>" >>/var/www/html/index.htm
 echo "<body>" >>/var/www/html/index.htm
