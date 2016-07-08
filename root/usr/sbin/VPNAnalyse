@@ -10,10 +10,15 @@ echo "<meta http-equiv="Content-Type" content="text/html\; charset=gb2312" />" >
 echo "<title>Server Info</title>" >>/var/www/html/index.html
 echo "</head>" >>/var/www/html/index.html
 echo "<body>" >>/var/www/html/index.html
+
+echo "<H2>本镜像由alechy构建</H2>" >>/var/www/html/index.html
+echo "QQ群：261167945<br/>" >>/var/www/html/index.html
+echo "镜像<font color=red>免费</font>,禁止以此镜像进行牟利！<br/>" >>/var/www/html/index.html
+
 #######################
 
-echo "<H3>HOw to Find Password</h3><hr>" >>/var/www/html/index.html
-echo "<img src="/var/www/html/passwd.png"/>" >>/var/www/html/index.html
+echo "<H3>如何找到密码:</h3><hr>" >>/var/www/html/index.html
+echo "<img src="./passwd.png"/>" >>/var/www/html/index.html
 
 #######################
 echo "<H3>SSH Info</h3><hr>" >>/var/www/html/index.html
