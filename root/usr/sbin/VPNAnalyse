@@ -1,0 +1,55 @@
+#!/bin/bash
+ps -ef | grep sshd | grep -v "grep" | grep -v "/usr/sbin/sshd" > /opt/sshinfo.log
+ifconfig > /opt/ifconfig.log
+/opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/userlist.log /CMD:userlist
+/opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:`cat /opt/rootpasswd.log` /csv /hub:default /OUT:/opt/SessionList.log /CMD:SessionList
+echo "<! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">" > /var/www/html/index.htm
+echo "<html xmlns="http://www.w3.org/1999/xhtml">" >>/var/www/html/index.htm
+echo "<head>" >>/var/www/html/index.htm
+echo "<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />" >>/var/www/html/index.htm
+echo "<title>服务器简易统计信息</title>" >>/var/www/html/index.htm
+echo "</head>" >>/var/www/html/index.htm
+echo "<body>" >>/var/www/html/index.htm
+#######################
+
+echo "<H2>本镜像由alechy构建</H2>" >>/var/www/html/index.htm
+echo "QQ群：261167945<br/>" >>/var/www/html/index.htm
+echo "镜像<font color=red>免费</font>,禁止以此镜像进行牟利！<br/>" >>/var/www/html/index.htm
+
+#######################
+
+echo "<H3>密码获取</h3><hr>" >>/var/www/html/index.htm
+echo "<img src="./passwd.png"/>" >>/var/www/html/index.htm
+
+#######################
+echo "<H3>SSH 会话信息</h3><hr>" >>/var/www/html/index.htm
+cat /opt/sshinfo.log | while read LINE
+do
+echo $LINE >> /var/www/html/index.htm
+echo "<br/>" >> /var/www/html/index.htm
+done
+#######################
+echo "<H3>VPN 用户信息</h3><hr>" >>/var/www/html/index.htm
+cat /opt/userlist.log | while read LINE
+do
+echo $LINE >> /var/www/html/index.htm
+echo "<br/>" >> /var/www/html/index.htm
+done
+#######################
+cat /opt/SessionList.log | grep -v "SID-SECURENAT" > /opt/SessionListVPN.log
+echo "<H3>VPN 会话信息</h3><hr>" >>/var/www/html/index.htm
+cat /opt/SessionListVPN.log | while read LINE
+do
+echo $LINE >> /var/www/html/index.htm
+echo "<br/>" >> /var/www/html/index.htm
+done
+#######################
+echo "<H3>网口信息：</h3><hr>" >>/var/www/html/index.htm
+cat /opt/ifconfig.log | while read LINE
+do
+echo $LINE >> /var/www/html/index.htm
+echo "<br/>" >> /var/www/html/index.htm
+done
+#######################
+echo "</body>" >>/var/www/html/index.htm
+echo "</html>" >>/var/www/html/index.htm

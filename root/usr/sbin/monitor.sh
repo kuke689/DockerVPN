@@ -11,5 +11,7 @@ rm -rf /var/log/tinyproxy/tinyproxy.log
 pkill tinyproxy
 service tinyproxy restart 
 fi
-sleep 3
+pkill vpncmd
+sh /usr/sbin/VPNAnalyse &
+sleep 15
 done
