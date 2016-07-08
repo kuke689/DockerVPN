@@ -25,9 +25,11 @@ sleep 1
 service sshd start
 sleep 1
 /opt/vpnserver/vpnserver start
+sleep 1
+echo "Start to Change Passwd!"
 if [ -f /opt/vpnserver/passwd.log ];
 then
- /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /dev/null
+ /opt/vpnserver/vpncmd 127.0.0.1:33394 /server /password:root /IN:/opt/vpnserver/passwd.log > /opt/vpnserver/passwdchange.log
  mv /opt/vpnserver/passwd.log /opt/vpnserver/passwd.bak
 fi
 echo " "
