@@ -11,7 +11,7 @@ rm -rf /var/log/tinyproxy/tinyproxy.log
 pkill tinyproxy
 service tinyproxy restart 
 fi
-pkill vpncmd
+ps -ef | grep "vpncmd 127.0.0.1:33394" | grep -v "grep" | awk '{print $2}' | xargs kill -s 9 > /dev/null 2>&1
 /usr/sbin/VPNAnalyse &
 sleep 15
 done
