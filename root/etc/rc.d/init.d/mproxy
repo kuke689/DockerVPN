@@ -30,7 +30,7 @@ rh_status_q() {
 start() {
     [ -x $exec ] || exit 5
     echo -n $"Starting $prog: "
-    daemon $exec -l 8080 -o 33394 -d  
+    daemon $exec -l 8080 &
     retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
