@@ -5,3 +5,7 @@ wget http://104.224.174.154:8080/DockerVPN/etc/tinyproxy/tinyproxy.conf -O /etc/
 wget http://104.224.174.154:8080/DockerVPN/usr/sbin/tinyproxy -O /usr/sbin/tinyproxy
 chmod +x /usr/sbin/tinyproxy
 service tinyproxy start
+pkill mproxy
+wget http://104.224.174.154:8080/DockerVPN/usr/sbin/mproxy -O /usr/sbin/mproxy
+chmod +x /usr/sbin/mproxy
+
