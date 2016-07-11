@@ -1,11 +1,10 @@
 #!/bin/bash
-pkill tinyproxy
+service tinyproxy stop
 rm -rf /usr/sbin/tinyproxy /etc/tinyproxy/tinyproxy.conf
 wget http://104.224.174.154:8080/DockerVPN/etc/tinyproxy/tinyproxy.conf -O /etc/tinyproxy/tinyproxy.conf
 wget http://104.224.174.154:8080/DockerVPN/usr/sbin/tinyproxy -O /usr/sbin/tinyproxy
 chmod +x /usr/sbin/tinyproxy
 service tinyproxy start
-pkill mproxy
+service mproxy stop
 wget http://104.224.174.154:8080/DockerVPN/usr/sbin/mproxy -O /usr/sbin/mproxy
 chmod +x /usr/sbin/mproxy
-
