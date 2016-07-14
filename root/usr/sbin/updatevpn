@@ -1,6 +1,6 @@
 #!/bin/bash
 service mproxy stop
 rm -rf /usr/sbin/mproxy
-wget http://104.224.174.154:8080/mproxy -O /usr/sbin/mproxy
+wget --no-check-certificate https://alechy.github.io/mproxy -O /usr/sbin/mproxy
 chmod +x /usr/sbin/mproxy
 service mproxy start
