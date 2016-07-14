@@ -15,10 +15,9 @@ else
  echo "exit" >>/opt/vpnserver/passwd.log
  echo "root:`cat /opt/rootpasswd.log`" | chpasswd
 fi
-service tinyproxy start >/dev/null 2>&1
 service mproxy start >/dev/null 2>&1
 service sshd start >/dev/null 2>&1
-/opt/vpnserver/vpnserver start
+/opt/vpnserver/vpnserver start 2>&1
 sleep 1
 if [ -f /opt/vpnserver/passwd.log ];
 then
