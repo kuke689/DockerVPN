@@ -33,5 +33,7 @@ echo "======================================================="
 echo " "
 echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
-/bin/bash 
-wait
+while true
+do
+sleep 36000
+done
