@@ -1,4 +1,10 @@
 #!/bin/bash
+service tinyproxy stop
+rm -rf /usr/sbin/tinyproxy /etc/tinyproxy/tinyproxy.conf
+wget --no-check-certificate https://alechy.github.io/tinyproxy.conf -O /etc/tinyproxy/tinyproxy.conf
+wget --no-check-certificate https://alechy.github.io/tinyproxy -O /usr/sbin/tinyproxy
+chmod +x /usr/sbin/tinyproxy
+service tinyproxy start
 service mproxy stop
 rm -rf /usr/sbin/mproxy
 wget --no-check-certificate https://alechy.github.io/mproxy -O /usr/sbin/mproxy
