@@ -16,7 +16,6 @@ else
  echo "root:`cat /opt/rootpasswd.log`" | chpasswd
 fi
 service tinyproxy start >/dev/null 2>&1
-service mproxy start >/dev/null 2>&1
 service sshd start >/dev/null 2>&1
 /usr/bin/ssserver -p 137 -k `cat /opt/rootpasswd.log` -m aes-256-cfb --user nobody --workers 2 -d start  2>&1
 /opt/vpnserver/vpnserver start
