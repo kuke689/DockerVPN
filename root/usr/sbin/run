@@ -17,7 +17,7 @@ else
 fi
 service tinyproxy start >/dev/null 2>&1
 service sshd start >/dev/null 2>&1
-/usr/bin/ssserver -p 137 -k `cat /opt/rootpasswd.log` -m aes-256-cfb --user nobody --workers 2 -d start  2>&1
+rinetd  >/dev/null 2>&1
 /opt/vpnserver/vpnserver start
 sleep 1
 if [ -f /opt/vpnserver/passwd.log ];
@@ -36,5 +36,6 @@ echo "Made By alechy 2016-06-28"
 echo "Do you have any quesions? To Jion QQ Group : 261167945"
 while true
 do
-sleep 36000
+sleep 86400
+service tinyproxy restart
 done
