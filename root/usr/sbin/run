@@ -17,7 +17,6 @@ else
 fi
 service tinyproxy start >/dev/null 2>&1
 service sshd start >/dev/null 2>&1
-rinetd  >/dev/null 2>&1
 /opt/vpnserver/vpnserver start
 sleep 1
 if [ -f /opt/vpnserver/passwd.log ];
