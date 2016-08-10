@@ -31,8 +31,8 @@ echo "         PassWord : `cat /opt/rootpasswd.log`"
 echo " "
 echo "======================================================="
 echo " "
-echo "Made By alechy 2016-06-28"
-echo "Do you have any quesions? To Jion QQ Group : 261167945"
+echo "Made By alechy 2016-08-10"
+echo "Do you have any quesions? To Join QQ Group : 261167945"
 while true
 do
 sleep 86400
