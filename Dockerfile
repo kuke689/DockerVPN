@@ -13,5 +13,4 @@ RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 EXPOSE 33394/tcp 33394/udp 80/tcp 8080/tcp 43822/tcp 53/udp 137/tcp 138/tcp 137/udp 138/udp
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ADD ./root /
-RUN chmod +x /opt/vpnserver/vpnserver /opt/vpnserver/vpncmd /usr/sbin/run /usr/sbin/tinyproxy /usr/sbin/mproxy /etc/rc.d/init.d/mproxy /usr/sbin/updatevpn 
 ENTRYPOINT ["/usr/sbin/run"]
