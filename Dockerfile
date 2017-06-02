@@ -1,6 +1,6 @@
-FROM centos:6.8
-MAINTAINER alechy
-RUN yum install -y wget tar epel-release openssh-server ntp openssh-clients
+FROM centos:7
+MAINTAINER kuke689
+RUN yum install -y wget tar vim epel-release openssh-server ntp openssh-clients
 RUN yum install -y tinyproxy
 RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
