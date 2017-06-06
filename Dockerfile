@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos-core:7.2.1511.20170606
 MAINTAINER kuke689
 RUN yum install -y wget tar vim epel-release openssh-server ntp openssh-clients
 RUN yum install -y tinyproxy
